@@ -7,8 +7,11 @@ import {MainServiceService} from './services/main-service.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  private service: MainServiceService;
 
-  constructor(private service1: MainServiceService) {
-    service1.getRequisitionList();
+  constructor(service: MainServiceService) {
+    this.service = service;
+    // this.service.getRequisitionList();
   }
+
 }

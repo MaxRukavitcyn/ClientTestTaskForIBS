@@ -1,3 +1,41 @@
-<p>
-  my-component works!
-</p>
+<div>
+  <form (submit)="this.service.addRequisition(id.value, name.value, emailFrom.value, emailTo.value, status.value)" name="addRequisition">
+  <p>Введите ID: <input type="number" #id></p>
+  <p>Введите название запроса: <input type="text" #name></p>
+  <p>Введите от кого: <input type="text" #emailFrom></p>
+  <p>Введите кому: <input type="text" #emailTo></p>
+  <p>активен: <input type="radio" #status></p>
+  <button type="submit">добавить</button>
+  </form>
+</div>
+
+<br>
+
+<br><br>
+
+<div>
+  <table >
+    <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>emailForm</th>
+      <th>emailTo</th>
+      <th>status</th>
+    </tr>
+    </thead>
+
+    <tbody *ngFor="let key of keys">
+    <tr>
+      <td>{{requisitions[key].id}}</td>
+      <td>{{requisitions[key].name}}</td>
+      <td>{{requisitions[key].emailTo}}</td>
+      <td>{{requisitions[key].emailFrom}}</td>
+      <td>{{requisitions[key].status}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
