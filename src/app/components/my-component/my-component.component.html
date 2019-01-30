@@ -1,20 +1,8 @@
-<div>
-  <form (submit)="this.service.addRequisition(id.value, name.value, emailFrom.value, emailTo.value, status.value)" name="addRequisition">
-  <p>Введите ID: <input type="number" #id></p>
-  <p>Введите название запроса: <input type="text" #name></p>
-  <p>Введите от кого: <input type="text" #emailFrom></p>
-  <p>Введите кому: <input type="text" #emailTo></p>
-  <p>активен: <input type="radio" #status></p>
-  <button type="submit">добавить</button>
-  </form>
-</div>
-
-<br>
-
-<br><br>
 
 <div>
-  <table >
+  <button (click)="showAdd()">+</button> <button (click)="showEdit()">edit</button>
+
+  <table>
     <thead>
     <tr>
       <th>id</th>
@@ -22,6 +10,7 @@
       <th>emailForm</th>
       <th>emailTo</th>
       <th>status</th>
+      <th></th>
     </tr>
     </thead>
 
@@ -32,10 +21,38 @@
       <td>{{requisitions[key].emailTo}}</td>
       <td>{{requisitions[key].emailFrom}}</td>
       <td>{{requisitions[key].status}}</td>
+      <td><button (click)="deleteReq(requisitions[key].id)">X</button></td>
     </tr>
     </tbody>
   </table>
 </div>
+
+<form *ngIf="!isEdit && isAdd" (submit)="addRequisition()"
+      name="addRequisition">
+  <div><h3>Добавить</h3>
+    <input placeholder="id" type="number" [(ngModel)]="idReq" name="idReq">
+    <input placeholder="name" type="text" [(ngModel)]="name" name="name">
+    <input placeholder="emailFrom" type="text" [(ngModel)]="emailFrom" name="emailFrom">
+    <input placeholder="emailTo" type="text" [(ngModel)]="emailTo" name="emailTo">
+    <label class="contact_form">статус: </label> <input type="radio" [(ngModel)]="status" name="status">
+    <br><br>
+    <button class="button-add" type="submit">добавить</button>
+  </div>
+</form>
+<form *ngIf="isEdit && !isAdd" (submit)="patchRequisition()"
+      name="addRequisition">
+  <div><h3>Редактировать</h3>
+    <input placeholder="id" type="number" [(ngModel)]="idReq" name="idReq">
+    <input placeholder="name" type="text" [(ngModel)]="name" name="name">
+    <input placeholder="emailFrom" type="text" [(ngModel)]="emailFrom" name="emailFrom">
+    <input placeholder="emailTo" type="text" [(ngModel)]="emailTo" name="emailTo">
+    <label class="contact_form">статус: </label> <input type="radio" [(ngModel)]="status" name="status">
+    <br><br>
+    <button class="button-add" type="submit">редактировать</button>
+  </div>
+</form>
+<br>
+
 
 
 
