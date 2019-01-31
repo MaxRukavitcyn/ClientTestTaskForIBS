@@ -14,7 +14,7 @@ export class MyComponentComponent implements OnInit {
   name: string;
   emailFrom: string;
   emailTo: string;
-  status: boolean;
+  status = false;
   isEdit = false;
   isAdd = false;
 
@@ -36,14 +36,13 @@ export class MyComponentComponent implements OnInit {
       'name': this.name,
       'emailFrom': this.emailFrom,
       'emailTo': this.emailTo,
-      'status': true
+      'status': this.status
     };
     console.log(this.obj);
     this.http.post('http://localhost:8080/test/add', obj
     ).subscribe((res) => {
       console.log(res);
-      // alert('Объект добавлен!');
-      this.ngOnInit();
+      this.getRequisition();
     });
   }
   showEdit() {
@@ -60,14 +59,13 @@ export class MyComponentComponent implements OnInit {
       'name': this.name,
       'emailFrom': this.emailFrom,
       'emailTo': this.emailTo,
-      'status': true
+      'status': this.status
     };
     console.log(this.obj);
     this.http.put('http://localhost:8080/test/patch', obj
     ).subscribe((res) => {
       console.log(res);
-      // alert('Объект изменен!');
-      this.ngOnInit();
+      this.getRequisition();
 
     });
   }

@@ -18,8 +18,8 @@
     <tr>
       <td>{{requisitions[key].id}}</td>
       <td>{{requisitions[key].name}}</td>
-      <td>{{requisitions[key].emailTo}}</td>
       <td>{{requisitions[key].emailFrom}}</td>
+      <td>{{requisitions[key].emailTo}}</td>
       <td>{{requisitions[key].status}}</td>
       <td><button (click)="deleteReq(requisitions[key].id)">X</button></td>
     </tr>
@@ -34,7 +34,7 @@
     <input placeholder="name" type="text" [(ngModel)]="name" name="name">
     <input placeholder="emailFrom" type="text" [(ngModel)]="emailFrom" name="emailFrom">
     <input placeholder="emailTo" type="text" [(ngModel)]="emailTo" name="emailTo">
-    <label class="contact_form">статус: </label> <input type="radio" [(ngModel)]="status" name="status">
+    <label class="contact_form">статус: </label> <input type="checkbox" [(ngModel)]="status" name="status">
     <br><br>
     <button class="button-add" type="submit">добавить</button>
   </div>
@@ -46,7 +46,7 @@
     <input placeholder="name" type="text" [(ngModel)]="name" name="name">
     <input placeholder="emailFrom" type="text" [(ngModel)]="emailFrom" name="emailFrom">
     <input placeholder="emailTo" type="text" [(ngModel)]="emailTo" name="emailTo">
-    <label class="contact_form">статус: </label> <input type="radio" [(ngModel)]="status" name="status">
+    <label class="contact_form">статус: </label> <input type="checkbox" [(ngModel)]="status" name="status">
     <br><br>
     <button class="button-add" type="submit">редактировать</button>
   </div>

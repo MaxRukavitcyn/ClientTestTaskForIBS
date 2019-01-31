@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {MainServiceService} from './services/main-service.service';
 
 @Component({
   selector: 'app-root',
@@ -7,11 +6,8 @@ import {MainServiceService} from './services/main-service.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  private service: MainServiceService;
 
-  constructor(service: MainServiceService) {
-    this.service = service;
-    // this.service.getRequisitionList();
+  constructor() {
   }
 
 }
